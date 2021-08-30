@@ -19,8 +19,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({ contacts: JSON.parse(localStorage.getItem("contacts")) });
-    console.log(this.state.contacts);
+    if (JSON.parse(localStorage.getItem("contacts"))) {
+      this.setState({ contacts: JSON.parse(localStorage.getItem("contacts")) });
+    }
   }
 
   addToContactList = (nameForCheck, number) => {
